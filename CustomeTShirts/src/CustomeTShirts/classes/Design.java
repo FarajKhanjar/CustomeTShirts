@@ -20,7 +20,7 @@ public class Design
 	}
 
 	
-	private double calculateArea()
+	protected double calculateArea()
 	{
 		double area = this.width*this.height;
 		return area;
