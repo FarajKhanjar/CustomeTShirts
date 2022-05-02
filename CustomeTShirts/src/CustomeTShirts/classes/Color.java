@@ -15,6 +15,10 @@ public class Color
 		this.B = B;
 	}
 
+	/**
+	 * In this method
+	 * @return the name of the field with the highest value.
+	 */
 	private String getDominant() 
 	{
 		short highestValue = R;
@@ -31,9 +35,14 @@ public class Color
 		return nameOfColor;
 	}
 
-	private void normalized() 
+	
+	/**
+	 * In this method
+	 * @return the normalized values (range [0,1]) of the colors in an RGB array.
+	 */
+	private float normalized() 
 	{
-
+		return 0f;
 	}
 
 }
