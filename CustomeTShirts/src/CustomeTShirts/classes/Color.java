@@ -2,6 +2,11 @@ package CustomeTShirts.classes;
 
 public class Color 
 {
+	
+	static {
+		Min = 0;
+		Max = 256;
+	}
 	// Fields
 	protected static short R ;
 	protected static short G ;
