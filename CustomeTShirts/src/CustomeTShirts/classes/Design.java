@@ -10,7 +10,7 @@ public class Design
 	protected Color color ;  
 	protected double complexity = ((Math.random() * (99)) + 1); 
 
-	public Design(double width, double height, String slogan, Color color, double complexity) 
+	public Design(String slogan, Color color) 
 	{
 		this.width = width;
 		this.height = height;

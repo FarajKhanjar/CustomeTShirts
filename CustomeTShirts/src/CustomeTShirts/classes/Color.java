@@ -3,16 +3,16 @@ package CustomeTShirts.classes;
 public class Color 
 {
 	// Fields
-	protected static short R = (short) (Math.random() * 256);
-	protected static short G = (short) (Math.random() * 256);
-	protected static short B = (short) (Math.random() * 256);
+	protected static short R ;
+	protected static short G ;
+	protected static short B ;
 
 	// Constructor
-	public Color(short R, short G, short B) 
+	public Color() 
 	{
-		this.R = R;
-		this.G = G;
-		this.B = B;
+		this.R = (short) (Math.random() * 256);
+		this.G = (short) (Math.random() * 256);
+		this.B = (short) (Math.random() * 256);
 	}
 
 	/**
