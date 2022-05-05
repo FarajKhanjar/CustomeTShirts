@@ -4,21 +4,80 @@ public class Design
 {
 	
 	// Fields 
-	protected double width = ((Math.random() * (10)) + 10);
-	protected double height = ((Math.random() * (15)) + 10);
-	protected String slogan;  // {words have only digits and letters}
-	protected Color color ;  
-	protected double complexity = ((Math.random() * (99)) + 1); 
+	private static final double WIDTH_MIN, WIDTH_MAX, HEIGHT_MIN, HEIGHT_MAX, COMPLEX_MIN, COMPLEX_MAX;
+	private static final String DEF_SLOGAN;
+
+	static 
+	{
+		WIDTH_MIN = 20;
+		WIDTH_MAX = 30;
+		HEIGHT_MIN = 10;
+		HEIGHT_MAX = 25;
+		COMPLEX_MIN = 1;
+		COMPLEX_MAX = 100;
+		DEF_SLOGAN = "Best T-Shirts";
+	}
+
+	// fields
+	protected double width;
+	protected double height;
+	protected String slogan;
+	public Color color;
+	protected double complexity;
 
 	public Design(String slogan, Color color) 
 	{
-		this.width = width;
-		this.height = height;
+		setWidth(width);
+		setHeight(height);
 		setSlogan(slogan);
 		this.color = color;
-		this.complexity = complexity;
+		setComplexity(complexity);
+	}
+	public Design(double width, double height, String slogan, Color color, double complexity) 
+	{
+		setWidth(width);
+		setHeight(height);
+		setSlogan(slogan);
+		setColor(color);
+		setComplexity(complexity);
 	}
 
+	public Design() 
+	{
+		this(WIDTH_MIN, HEIGHT_MIN, DEF_SLOGAN, new Color(), COMPLEX_MIN);
+	}
+	
+	// setters
+	protected void setWidth(double width) 
+	{
+		if (Utils.isInRange(width, WIDTH_MIN, WIDTH_MAX))
+			this.width = width;
+	}
+
+	protected void setHeight(double height) 
+	{
+		if (Utils.isInRange(height, HEIGHT_MIN, HEIGHT_MAX))
+			this.height = height;
+	}
+
+	protected void setComplexity(double complexity) 
+	{
+		if (Utils.isInRange(complexity, COMPLEX_MIN, COMPLEX_MAX))
+			this.complexity = complexity;
+	}
+
+	protected void setSlogan(String slogan) 
+	{
+		if (Utils.isLetterDigits(slogan))
+			this.slogan = slogan;
+		else
+			this.slogan = DEF_SLOGAN;
+	}
+	
+	protected void setColor(Color color) 
+	{
+		this.color = color;
+	}
 	
 	protected double calculateArea()
 	{
@@ -26,10 +85,36 @@ public class Design
 		return area;
 	}
 	
-	
-	private void setSlogan(String slgn)
-	{	       
-	       this.slogan = slgn;
+	//getters	
+	public double getWidth() 
+	{
+		return width;
 	}
 
+	public double getHeight() 
+	{
+		return height;
+	}
+
+	public String getSlogan() 
+	{
+		return slogan;
+	}
+
+	public Color getColor() 
+	{
+		return color;
+	}
+
+	public double getComplexity()
+	{
+		return complexity;
+	}
+	
+	@Override
+	public String toString() 
+	{
+		return "Design [width=" + width + ", height=" + height + ", slogan=" + slogan + ", color=" + color+","
+				+ "\ncomplexity=" + complexity;
+	}
 }
